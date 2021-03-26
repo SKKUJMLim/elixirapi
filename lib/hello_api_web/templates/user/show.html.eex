@@ -1,0 +1,71 @@
+<h1>Show User</h1>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @user.user_id %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @user.password %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Phonenum:</strong>
+    <%= @user.phonenum %>
+  </li>
+
+</ul>
+
+
+<span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>
+
+
+<br><br><br><br>
+
+<h1>게시판 활동 목록</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for board <- @board do %>
+      <tr>
+        <td><%= board.title %></td>
+        <td><%= board.content %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<br><br><br><br>
+
+<h1>답글 활동 목록</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for reply <- @reply do %>
+    <tr>
+      <td><%= reply.comment %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+

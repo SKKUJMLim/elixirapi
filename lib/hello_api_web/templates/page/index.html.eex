@@ -1,0 +1,28 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>Peace-of-mind from prototype to production</p>
+</section>
+
+
+<p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+<p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+<section class="row">
+  <%= form_for @conn, Routes.page_path(@conn, :create), [as: :user], fn f -> %>
+      <div>
+        <label for="id">id</label>
+        <%= text_input f, :userid, placeholder: "id" %>
+        <%= error_tag f, :userid %>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <%= password_input f, :password, placeholder: "Password" %>
+        <%= error_tag f, :password %>
+      </div>
+      
+      <%= submit "LOGIN" %>
+  <% end %>
+
+  <span><%= link "회원가입", to: Routes.user_path(@conn, :new) %></span>
+</section>
