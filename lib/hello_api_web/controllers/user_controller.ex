@@ -32,7 +32,6 @@ defmodule HelloApiWeb.UserController do
 
     reply = Scheme.get_reply_list_by_userid(id)
     board = Scheme.get_board_list_by_userid(id)
-    IO.inspect(board)
 
     render(conn, "show.html", user: user, reply: reply, board: board)
   end

@@ -5,7 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
-
+      <th>username</th>
       <th></th>
     </tr>
   </thead>
@@ -14,6 +14,7 @@
       <tr>
         <td><%= board.title %></td>
         <td><%= board.content %></td>
+        <td><%= get_user_info_by_board(board) |> get_username_by_userid%></td>
         <td>
           <span><%= link "Show", to: Routes.board_path(@conn, :show, board) %></span>
           <span><%= link "Edit", to: Routes.board_path(@conn, :edit, board) %></span>
